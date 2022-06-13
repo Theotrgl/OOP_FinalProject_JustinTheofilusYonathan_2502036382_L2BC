@@ -37,10 +37,12 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
     private int bally_dir = -5;
     
     private MapMaker map;
+    private MapMaker2 map2;
     
     //Class constructor
     public Logic(){
         map = new MapMaker(3,7);
+        map2 = new MapMaker2(2,6);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -56,6 +58,8 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
         
         //Drawing map
         map.drawBricks((Graphics2D)g);
+        //map2.drawBricks((Graphics2D)g);
+        
         
         //Drawing borders
         g.setColor(Color.white);
@@ -124,10 +128,12 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
             if(new Rectangle(ball_x, ball_y, 20, 20).intersects(new Rectangle(slider_x,550,100,8))){
                 bally_dir = - bally_dir;
             }
-            
+                                  //map2.map.length
             A: for(int i = 0; i < map.map.length; i++){
+                                  //map2.map[0].length
                 for(int j = 0; j < map.map[0].length; j++){
                     if(map.map[i][j] > 0){
+                                        //map2
                         int brick_x = j*map.brickWidth + 80;
                         int brick_y = i*map.brickHeight + 50;
                         int brickWidth = map.brickWidth;
@@ -140,6 +146,7 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
                         //Implementing collision between bricks and ball
                         if(ball_rect.intersects(brick_rect)){
                             //Making broken bricks disapear on collision
+                            //map2
                             map.setBrickValue(0, i, j);
                             numBricks --;
                             score += 5;

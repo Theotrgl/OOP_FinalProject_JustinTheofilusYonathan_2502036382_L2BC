@@ -5,13 +5,13 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-public class MapMaker {
+public class MapMaker2 {
     //Initializing variables
     public int map[][];
     public int brickWidth;
     public int brickHeight;
     //Class constructor
-    public MapMaker(int row, int col){
+    public MapMaker2 (int row, int col){
         map = new int[row][col];
         //Returning whether each box in table exists or not
         //1 = Exists
@@ -32,7 +32,7 @@ public class MapMaker {
             for(int j = 0; j < map[0].length; j++){
                 if(map[i][j] > 0){
                     //Drawing big rectangle
-                    g.setColor(Color.white);
+                    g.setColor(Color.red);
                     g.fillRect(j*brickWidth +80, i*brickHeight + 50, brickWidth, brickHeight);
                     
                     //Separating big rectangle into smaller bricks
