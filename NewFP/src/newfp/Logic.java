@@ -37,12 +37,19 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
     private int bally_dir = -5;
     
     private MapMaker map;
-    private MapMaker2 map2;
+    //private final MapMaker2 map2;
+    private final Sound sfx = new Sound();
+    
+    private final String breakSFX ="C:\\Users\\WINDOWS10\\Desktop\\Java\\NewFP\\SFX\\break.wav";
+    private final String blip1SFX="C:\\Users\\WINDOWS10\\Desktop\\Java\\NewFP\\SFX\\blip.wav";
+    private final String blip2SFX="C:\\Users\\WINDOWS10\\Desktop\\Java\\NewFP\\SFX\\blip2.wav";
+    private final String Continue="C:\\Users\\WINDOWS10\\Desktop\\Java\\NewFP\\SFX\\continue.wav";
+    private final String pause="C:\\Users\\WINDOWS10\\Desktop\\Java\\NewFP\\SFX\\pause.wav";
     
     //Class constructor
     public Logic(){
         map = new MapMaker(3,7);
-        map2 = new MapMaker2(2,6);
+        //map2 = new MapMaker2(2,6);
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
@@ -127,6 +134,8 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
             //Implementing collision between ball and slider
             if(new Rectangle(ball_x, ball_y, 20, 20).intersects(new Rectangle(slider_x,550,100,8))){
                 bally_dir = - bally_dir;
+                sfx.se.setFile(blip1SFX);
+                sfx.se.play();
             }
                                   //map2.map.length
             A: for(int i = 0; i < map.map.length; i++){
@@ -156,6 +165,8 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
                             }else{
                                 bally_dir = -bally_dir;
                             }
+                            sfx.se.setFile(breakSFX);
+                            sfx.se.play();
                             break A;
                         }
                     }
@@ -171,12 +182,18 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
             //Collision for left border
             if(ball_x < 0){
                 ballx_dir = -ballx_dir;
+                sfx.se.setFile(blip2SFX);
+                sfx.se.play();
             //Collition for top border
             }if(ball_y < 0){
                 bally_dir = -bally_dir;
+                sfx.se.setFile(blip2SFX);
+                sfx.se.play();
             //Collision for right border
             }if(ball_x > 665){
                 ballx_dir = -ballx_dir;
+                sfx.se.setFile(blip2SFX);
+                sfx.se.play();
             }
         }
         
@@ -219,11 +236,15 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
                 score = 0;
                 numBricks = 21;
                 map = new MapMaker(3,7);
+                sfx.se.setFile(Continue);
+                sfx.se.play();
             }
         //Pausing the game
         }if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
             Run = false;
-            Pause = true;            
+            Pause = true;
+            sfx.se.setFile(pause);
+            sfx.se.play();            
         }
         repaint();
     }
