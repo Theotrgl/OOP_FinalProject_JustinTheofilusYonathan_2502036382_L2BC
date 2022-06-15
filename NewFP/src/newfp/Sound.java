@@ -1,35 +1,32 @@
 package newfp;
 
-
+//Imported Classes
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
 public class Sound {
-    SoundEffects se = new SoundEffects();
-    
+    //Class Constructor
     public Sound(){
     }
-    
-    public class SoundEffects{
+    //initializing clip variable
     Clip clip;
-    
-        public void setFile(String soundFileName){
-            try{
+    //Method to set a certain audio file to play
+    public void setFile(String soundFileName){
+        try{
                 File file = new File(soundFileName);
                 AudioInputStream sound = AudioSystem.getAudioInputStream(file);
                 clip = AudioSystem.getClip();
                 clip.open(sound);
-            }
-            catch(Exception e){
+        }
+        catch(Exception e){
                 
-            }
         }
-        public void play(){
-            clip.setFramePosition(0);
-            clip.start();
-        }
+    }               
+    //Method to play the audio file
+    public void play(){
+        clip.setFramePosition(0);
+        clip.start();
     }
-
 }

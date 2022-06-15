@@ -134,8 +134,8 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
             //Implementing collision between ball and slider
             if(new Rectangle(ball_x, ball_y, 20, 20).intersects(new Rectangle(slider_x,550,100,8))){
                 bally_dir = - bally_dir;
-                sfx.se.setFile(blip1SFX);
-                sfx.se.play();
+                sfx.setFile(blip1SFX);
+                sfx.play();
             }
                                   //map2.map.length
             A: for(int i = 0; i < map.map.length; i++){
@@ -165,8 +165,8 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
                             }else{
                                 bally_dir = -bally_dir;
                             }
-                            sfx.se.setFile(breakSFX);
-                            sfx.se.play();
+                            sfx.setFile(breakSFX);
+                            sfx.play();
                             break A;
                         }
                     }
@@ -182,18 +182,18 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
             //Collision for left border
             if(ball_x < 0){
                 ballx_dir = -ballx_dir;
-                sfx.se.setFile(blip2SFX);
-                sfx.se.play();
+                sfx.setFile(blip2SFX);
+                sfx.play();
             //Collition for top border
             }if(ball_y < 0){
                 bally_dir = -bally_dir;
-                sfx.se.setFile(blip2SFX);
-                sfx.se.play();
+                sfx.setFile(blip2SFX);
+                sfx.play();
             //Collision for right border
             }if(ball_x > 665){
                 ballx_dir = -ballx_dir;
-                sfx.se.setFile(blip2SFX);
-                sfx.se.play();
+                sfx.setFile(blip2SFX);
+                sfx.play();
             }
         }
         
@@ -236,15 +236,15 @@ public class Logic extends JPanel implements KeyListener, ActionListener {
                 score = 0;
                 numBricks = 21;
                 map = new MapMaker(3,7);
-                sfx.se.setFile(Continue);
-                sfx.se.play();
+                sfx.setFile(Continue);
+                sfx.play();
             }
         //Pausing the game
         }if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
             Run = false;
             Pause = true;
-            sfx.se.setFile(pause);
-            sfx.se.play();            
+            sfx.setFile(pause);
+            sfx.play();            
         }
         repaint();
     }
