@@ -9,4 +9,6 @@ Hello Mr Jude, this is my repository for the OOP final project. For the project 
 
 
 Notes:
-The demo video is a silent video because my screen recording software wont pick up my mic, so I am very sorry for that.
+The demo video is a silent video because my screen recording software wont pick up my mic, so I am very sorry for that. 
+
+The Java files are stored under NewFP->src/NewFP.
