@@ -5,7 +5,7 @@ Name: Justin Theofilus Yonathan (2502036382)
 
 Class: L2BC
 
-Hello Mr Jude, this is my repository for the OOP final project. For the project I made a classic brickbreaker game. In it features sound effects, pause function, and win-lose screens. I hope you like my project.
+Hello Mr Jude, this is my repository for the OOP final project. For the project I made a classic brickbreaker game. In it features sound effects, pause function, and win-lose screens. I hope you like my project and thank you for visiting this repository.
 
 
 Notes:
